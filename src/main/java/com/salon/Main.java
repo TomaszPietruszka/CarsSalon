@@ -18,12 +18,5 @@ public class Main {
 
         picker.pickCar(customer);
 
-        picker.pickColor(customer);
-
-
-
     }
-
-
-
 }

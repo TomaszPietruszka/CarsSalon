@@ -11,4 +11,7 @@ public enum Fuel {
         this.cost = cost;
     }
 
+    public int getCost() {
+        return cost;
+    }
 }

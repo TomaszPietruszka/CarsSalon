@@ -11,4 +11,8 @@ public enum Body {
     Body(int cost) {
         this.cost = cost;
     }
+
+    public int getCost() {
+        return cost;
+    }
 }

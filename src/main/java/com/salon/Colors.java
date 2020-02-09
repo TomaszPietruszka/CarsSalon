@@ -16,5 +16,4 @@ public enum Colors {
     public int getCost() {
         return cost;
     }
-
 }

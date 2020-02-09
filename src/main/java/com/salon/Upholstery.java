@@ -10,4 +10,8 @@ public enum Upholstery {
     Upholstery(int cost) {
         this.cost = cost;
     }
+
+    public int getCost() {
+        return cost;
+    }
 }
