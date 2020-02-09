@@ -12,8 +12,6 @@ public class Main {
 
         Customer customer = new Customer("Tomasz", 20000);
 
-        Scanner scanner = new Scanner(System.in);
-
         Picker picker = new Picker();
 
         picker.pickCar(customer);
