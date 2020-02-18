@@ -1,4 +1,4 @@
-package com.salon;
+package com.salon.car;
 
 public enum Fuel {
     PETROL(0),

@@ -1,6 +1,6 @@
-package com.salon;
+package com.salon.car;
 
-public class Cars {
+public class Car {
     private String model;
     private int price;
     private Colors color;
@@ -8,7 +8,7 @@ public class Cars {
     private Upholstery upholstery;
     private Fuel fuel;
 
-    public Cars(String model, int price, Colors color, Body body, Upholstery upholstery, Fuel fuel) {
+    public Car(String model, int price, Colors color, Body body, Upholstery upholstery, Fuel fuel) {
         this.model = model;
         this.price = price;
         this.color = color;
@@ -63,5 +63,15 @@ public class Cars {
 
     public void setFuel(Fuel fuel) {
         this.fuel = fuel;
+    }
+
+    @Override
+    public String toString() {
+        return "Model: " + getModel() + "\n" +
+                "Basic price: $" + getPrice() + "\n" +
+                "Color: " + getColor() + "\n" +
+                "Body: " + getBody() + "\n" +
+                "Upholstery: " + getUpholstery() + "\n" +
+                "Fuel: " + getFuel();
     }
 }

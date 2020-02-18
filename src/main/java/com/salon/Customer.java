@@ -1,17 +1,17 @@
 package com.salon;
 
+import com.salon.car.Car;
+
 public class Customer {
     private String name;
     private int customerMoney;
+    private Car customerCar;
 
     public Customer(String name, int customerMoney) {
         this.name = name;
         this.customerMoney = customerMoney;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int getCustomerMoney() {
         return customerMoney;
@@ -19,5 +19,13 @@ public class Customer {
 
     public void setCustomerMoney(int customerMoney) {
         this.customerMoney = customerMoney;
+    }
+
+    public Car getCustomerCar() {
+        return customerCar;
+    }
+
+    public void setCustomerCar(Car customerCar) {
+        this.customerCar = customerCar;
     }
 }
