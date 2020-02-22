@@ -3,7 +3,7 @@ package com.salon.selectors;
 import com.salon.Customer;
 
 public abstract class CarTemplate {
-    public int numberOfTry;
+    public int numberOfTry = 0;
 
     public abstract void printWelcomeMessage();
 

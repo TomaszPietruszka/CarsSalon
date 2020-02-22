@@ -1,13 +1,14 @@
 package com.salon.selectors;
 
 import com.salon.Customer;
+import com.salon.car.CarsBase;
 
 import java.util.Scanner;
 
 public class EndTransaction extends CarTemplate {
-    private BodySelector bodySelector = new BodySelector();
 
-    boolean endTransaction(Customer customer) {
+    public boolean endTransaction(CarsBase base, CarSelector car, ColorSelector color, BodySelector body, UpholsterySelector upholstery,
+                           FuelSelector fuel, EndTransaction end, Customer customer) {
 
         printWelcomeMessage();
 
@@ -25,7 +26,7 @@ public class EndTransaction extends CarTemplate {
             System.out.println("You have left $" + customer.getCustomerMoney());
             return false;
         } else if (select == cancel) {
-            bodySelector.selectBody(customer);
+            fuel.setFuel(base, car, color, body, upholstery, fuel, end, customer);
             return true;
         } else
             return true;

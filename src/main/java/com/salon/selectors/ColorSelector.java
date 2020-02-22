@@ -1,14 +1,15 @@
 package com.salon.selectors;
 
 import com.salon.Customer;
+import com.salon.car.CarsBase;
 import com.salon.car.Colors;
 
 import java.util.Scanner;
 
 public class ColorSelector extends CarTemplate {
-    public Runner runner = new Runner();
 
-    void setColor(Customer customer) {
+    public void setColor(CarsBase base, CarSelector car, ColorSelector color, BodySelector body, UpholsterySelector upholstery,
+                         FuelSelector fuel, EndTransaction end, Customer customer) {
         printWelcomeMessage();
 
         Scanner scanner = new Scanner(System.in);
@@ -17,40 +18,41 @@ public class ColorSelector extends CarTemplate {
             case 0:
                 numberOfTry = 0;
                 backMoney(customer, customer.getCustomerCar().getPrice());
-                carSelector.selectCar(customer);
+                car.selectCar(base, car, color, body, upholstery, fuel, end, customer);
                 break;
             case 1:
-                setCase(customer, Colors.WHITE);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Colors.WHITE);
                 break;
             case 2:
-                setCase(customer, Colors.BLACK);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Colors.BLACK);
                 break;
             case 3:
-                setCase(customer, Colors.RED);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Colors.RED);
                 break;
             case 4:
-                setCase(customer, Colors.GREEN);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Colors.GREEN);
                 break;
             case 5:
-                setCase(customer, Colors.BLUE);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Colors.BLUE);
                 break;
             default:
-                setColor(customer);
+                setColor(base, car, color, body, upholstery, fuel, end, customer);
                 break;
         }
     }
 
-    public void setCase(Customer customer, Colors color) {
-        if (customer.getCustomerMoney() >= color.getCost()) {
-            System.out.println("You chose a " + color + " car!");
-            customer.getCustomerCar().setColor(color);
+    public void setCase(CarsBase base, CarSelector car, ColorSelector color, BodySelector body, UpholsterySelector upholstery,
+                        FuelSelector fuel, EndTransaction end, Customer customer, Colors colors) {
+        if (customer.getCustomerMoney() >= colors.getCost()) {
+            System.out.println("You chose a " + colors + " car!");
+            customer.getCustomerCar().setColor(colors);
             takeMoney(customer, customer.getCustomerCar().getColor().getCost());
-//            bodySelector.selectBody(customer);
+            body.setBody(base, car, color, body, upholstery, fuel, end, customer);
         } else {
             if (!checkNumberOfTry(customer)) {
                 return;
             }
-            setColor(customer);
+            setColor(base, car, color, body, upholstery, fuel, end, customer);
         }
     }
 

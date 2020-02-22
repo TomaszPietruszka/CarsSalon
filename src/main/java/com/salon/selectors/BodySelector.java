@@ -2,12 +2,14 @@ package com.salon.selectors;
 
 import com.salon.Customer;
 import com.salon.car.Body;
+import com.salon.car.CarsBase;
 
 import java.util.Scanner;
 
 public class BodySelector extends CarTemplate {
 
-    void selectBody(Customer customer) {
+    public void setBody(CarsBase base, CarSelector car, ColorSelector color, BodySelector body, UpholsterySelector upholstery,
+                        FuelSelector fuel, EndTransaction end, Customer customer) {
         printWelcomeMessage();
 
         Scanner scanner = new Scanner(System.in);
@@ -16,37 +18,38 @@ public class BodySelector extends CarTemplate {
             case 0:
                 numberOfTry = 0;
                 backMoney(customer, customer.getCustomerCar().getColor().getCost());
-                colorSelector.setColor(customer);
+                color.setColor(base, car, color, body, upholstery, fuel, end, customer);
                 break;
             case 1:
-                setCase(customer, Body.SEDAN);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Body.SEDAN);
                 break;
             case 2:
-                setCase(customer, Body.PICKUP);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Body.PICKUP);
                 break;
             case 3:
-                setCase(customer, Body.HATCHBACK);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Body.HATCHBACK);
                 break;
             case 4:
-                setCase(customer, Body.COMBI);
+                setCase(base, car, color, body, upholstery, fuel, end, customer, Body.COMBI);
                 break;
             default:
-                selectBody(customer);
+                setBody(base, car, color, body, upholstery, fuel, end, customer);
                 break;
         }
     }
 
-    private void setCase(Customer customer, Body body) {
-        if (customer.getCustomerMoney() >= body.getCost()) {
-            System.out.println("You chose a " + body + " body!");
-            customer.getCustomerCar().setBody(body);
+    private void setCase(CarsBase base, CarSelector car, ColorSelector color, BodySelector body, UpholsterySelector upholstery,
+                         FuelSelector fuel, EndTransaction end, Customer customer, Body bodies) {
+        if (customer.getCustomerMoney() >= bodies.getCost()) {
+            System.out.println("You chose a " + bodies + " bodies!");
+            customer.getCustomerCar().setBody(bodies);
             takeMoney(customer, customer.getCustomerCar().getBody().getCost());
-            upholsterySelector.selectUpholstery(customer);
+            upholstery.setUpholstery(base, car, color, body, upholstery, fuel, end, customer);
         } else {
             if (!checkNumberOfTry(customer)) {
                 return;
             }
-            selectBody(customer);
+            setBody(base, car, color, body, upholstery, fuel, end, customer);
         }
     }
 

@@ -1,7 +1,5 @@
 package com.salon;
 
-import com.salon.selectors.Runner;
-
 public class Main {
 
     public static void main(String[] args) {
