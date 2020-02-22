@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class UpholsterySelector extends CarTemplate {
 
     public void setUpholstery(CarsBase base, CarSelector car, ColorSelector color, BodySelector body, UpholsterySelector upholstery,
-                       FuelSelector fuel, EndTransaction end, Customer customer) {
+                              FuelSelector fuel, EndTransaction end, Customer customer) {
         printWelcomeMessage();
 
         Scanner scanner = new Scanner(System.in);

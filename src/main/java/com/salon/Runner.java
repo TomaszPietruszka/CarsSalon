@@ -13,21 +13,14 @@ public class Runner extends CarTemplate {
     private EndTransaction end = new EndTransaction();
 
     public void run(Customer customer) {
-
         printWelcomeMessage();
-
         car.selectCar(base, car, color, body, upholstery, fuel, end, customer);
-
-
-
-
     }
 
     @Override
     public void printWelcomeMessage() {
         System.out.println("Welcome in our Cars Salon!\n");
     }
-
 }
 
 

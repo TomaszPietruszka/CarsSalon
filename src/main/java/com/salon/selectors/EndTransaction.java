@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class EndTransaction extends CarTemplate {
 
     public boolean endTransaction(CarsBase base, CarSelector car, ColorSelector color, BodySelector body, UpholsterySelector upholstery,
-                           FuelSelector fuel, EndTransaction end, Customer customer) {
+                                  FuelSelector fuel, EndTransaction end, Customer customer) {
 
         printWelcomeMessage();
 
